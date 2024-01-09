@@ -20,3 +20,24 @@
     raccogliere le informazioni dall'utente usando form, input, button in pagina invece che coi prompt.
     Stampare i risultati in pagina, invece che in console
 */
+
+
+const word = prompt("Inserire una parola").trim()
+
+function getPalindrome() {
+    let reverseWord = '';
+    for (let i = word.length -1; i >= 0; i--) {
+        reverseWord += word[i]
+    }
+
+    return reverseWord
+}
+
+const result = getPalindrome()
+console.log(result)
+
+if (result === word){
+    console.log(word, "and", result, "are palindromes")
+} else {
+    console.log(word, "and", result, "are not palindromes")
+}
