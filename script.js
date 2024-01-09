@@ -39,9 +39,9 @@ console.log("_______________________")
 //!Es 2 Pari e dispari --------------------------------------------------------------------------
 
 //L’utente sceglie pari o dispari e inserisce un numero da 1 a 5. (con un prompt)
-const userChoice = prompt("Pari o dispari?").trim()
+const userChoice = prompt("Pari o dispari?").trim().toLowerCase()
 
-if (userChoice !== "Pari" && userChoice !== "Dispari" && userChoice !== "pari" && userChoice !== "dispari") {
+if (userChoice !== "pari" && userChoice !== "dispari") {
     alert("Parametri errati")
 } else {
     console.log("L'utente ha scelto:", userChoice)
@@ -61,7 +61,6 @@ console.log("Numero comuputer: ", randomNumberPc)
 const sum = randomNumberUser + randomNumberPc
 
 //Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
-
 function oddEven () {
     return sum % 2 === 0
 }
@@ -70,14 +69,10 @@ const oddEvenResult = oddEven(sum)
 console.log(oddEvenResult)
 
 //Dichiariamo chi ha vinto in console.
-if (userChoice === "Pari" || userChoice === "pari" && oddEvenResult) {
+if (userChoice === "pari" && oddEvenResult) {
     console.log("L'utente ha vinto", sum, "è pari")
-} else if (userChoice === "Dispari" || userChoice === "dispari" && !oddEvenResult) {
-    console.log("Hai perso")
-}
-
-if (userChoice === "Dispari" || userChoice === "dispari" && !oddEvenResult) {
+} else if (userChoice === "dispari" && !oddEvenResult) {
     console.log("L'utente ha vinto", sum, "è dispari")
-} else if (userChoice === "Pari" || userChoice === "pari" && oddEvenResult) {
-    console.log("Hai perso")
+} else {
+    console.log ("Ha vinto il pc")
 }
