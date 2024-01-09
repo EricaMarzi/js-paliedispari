@@ -1,73 +1,83 @@
 /*
-    Palidroma
-    Chiedere all’utente di inserire una parola (con un prompt)
-    Creare una funzione per capire se la parola inserita è palindroma
-    Stampiamo il risultato in console
-
-    Pari e Dispari
-    L’utente sceglie pari o dispari e inserisce un numero da 1 a 5. (con un prompt)
-    Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
-    Sommiamo i due numeri
-    Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
-    Dichiariamo chi ha vinto in console.
-
-    Consigli del giorno
-    1. Scriviamo sempre in italiano i passaggi che vogliamo fare
-    2. Scriviamo sempre solo un pezzetto di codice alla volta, se funziona allora andiamo avanti.
-
     BONUS
     Se ne avete tempo e voglia, provate a:
     raccogliere le informazioni dall'utente usando form, input, button in pagina invece che coi prompt.
     Stampare i risultati in pagina, invece che in console
 */
-
-//!Es 1 Palidroma
-
-const word = prompt("Inserire una parola").trim()
-
+   
+//!Es 1 Palidroma ------------------------------------------------------------------------------
+   
+//Chiedere all’utente di inserire una parola (con un prompt)
+const word = prompt("Inserire una parola", "osso").trim()
+   
+//Creare una funzione per capire se la parola inserita è palindroma
 function getPalindrome() {
     let reverseWord = '';
     for (let i = word.length -1; i >= 0; i--) {
         reverseWord += word[i]
     }
-
+        
     if (!word) {
         alert("Parametri errati")
     }
-    
+        
     return reverseWord
 }
-
+    
 const result = getPalindrome()
-console.log(result)
-
+console.log("Parola inserita:", result)
+    
+//Stampiamo il risultato in console
 if (result === word){
     console.log(word, "e", result, "sono palindromi")
 } else {
     console.log(word, "e", result, "non sono palindromi")
 }
 
-//!Es 2 Pari e dispari
+console.log("_______________________")
 
-/*
-Pari e Dispari
-L’utente sceglie pari o dispari e inserisce un numero da 1 a 5. (con un prompt)
-Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
-Sommiamo i due numeri
-Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
-Dichiariamo chi ha vinto in console.
-*/
+//!Es 2 Pari e dispari --------------------------------------------------------------------------
 
+//L’utente sceglie pari o dispari e inserisce un numero da 1 a 5. (con un prompt)
 const userChoice = prompt("Pari o dispari?").trim()
 
 if (userChoice !== "Pari" && userChoice !== "Dispari" && userChoice !== "pari" && userChoice !== "dispari") {
     alert("Parametri errati")
 } else {
-    console.log(userChoice)
+    console.log("L'utente ha scelto:", userChoice)
 }
 
+//Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+function getRandomize (min, max) {
+    return Math.floor(Math.random() * 5) + 1
+}
 
+const randomNumberUser = getRandomize()
+const randomNumberPc = getRandomize()
+console.log("Numero utente: ", randomNumberUser)
+console.log("Numero comuputer: ", randomNumberPc)
 
+//Sommiamo i due numeri
+const sum = randomNumberUser + randomNumberPc
 
+//Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 
+function oddEven () {
+    return sum % 2 === 0
+}
 
+const oddEvenResult = oddEven(sum)
+console.log(oddEvenResult)
+
+//Dichiariamo chi ha vinto in console.
+if (userChoice === "Pari" || userChoice === "pari" && oddEvenResult) {
+    console.log("L'utente ha vinto", sum, "è pari")
+} else if (userChoice === "Dispari" || userChoice === "dispari" && !oddEvenResult) {
+    console.log("Hai perso")
+}
+
+if (userChoice === "Dispari" || userChoice === "dispari" && !oddEvenResult) {
+    console.log("L'utente ha vinto", sum, "è dispari")
+} else if (userChoice === "Pari" || userChoice === "pari" && oddEvenResult) {
+    console.log("Hai perso")
+}
