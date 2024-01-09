@@ -8,7 +8,7 @@
 //!Es 1 Palidroma ------------------------------------------------------------------------------
    
 //Chiedere all’utente di inserire una parola (con un prompt)
-const word = prompt("Inserire una parola", "osso").trim()
+const word = prompt("Inserire una parola", "osso").trim().toLocaleLowerCase()
    
 //Creare una funzione per capire se la parola inserita è palindroma
 function getPalindrome() {
