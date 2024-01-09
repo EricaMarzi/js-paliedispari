@@ -21,6 +21,7 @@
     Stampare i risultati in pagina, invece che in console
 */
 
+//!Es 1 Palidroma
 
 const word = prompt("Inserire una parola").trim()
 
@@ -30,6 +31,10 @@ function getPalindrome() {
         reverseWord += word[i]
     }
 
+    if (!word) {
+        alert("Parametri errati")
+    }
+    
     return reverseWord
 }
 
@@ -37,7 +42,32 @@ const result = getPalindrome()
 console.log(result)
 
 if (result === word){
-    console.log(word, "and", result, "are palindromes")
+    console.log(word, "e", result, "sono palindromi")
 } else {
-    console.log(word, "and", result, "are not palindromes")
+    console.log(word, "e", result, "non sono palindromi")
 }
+
+//!Es 2 Pari e dispari
+
+/*
+Pari e Dispari
+L’utente sceglie pari o dispari e inserisce un numero da 1 a 5. (con un prompt)
+Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+Sommiamo i due numeri
+Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+Dichiariamo chi ha vinto in console.
+*/
+
+const userChoice = prompt("Pari o dispari?").trim()
+
+if (userChoice !== "Pari" && userChoice !== "Dispari" && userChoice !== "pari" && userChoice !== "dispari") {
+    alert("Parametri errati")
+} else {
+    console.log(userChoice)
+}
+
+
+
+
+
+
